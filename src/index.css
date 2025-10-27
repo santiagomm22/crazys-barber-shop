@@ -58,10 +58,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground;
+    background-color: #302f2c;
+    margin: 0;
+    padding: 0;
+    color: white;
   }
 }
