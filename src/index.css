@@ -59,9 +59,43 @@
 
 @layer base {
   body {
-    background-color: #302f2c;
+    background: radial-gradient(circle at top left, #2a2825 0%, #1a1918 50%, #0d0c0c 100%);
     margin: 0;
     padding: 0;
     color: white;
+    min-height: 100vh;
+  }
+}
+
+.animated-title {
+  /* Tamaño fluido en pantallas pequeñas para que sea grande pero controlado */
+  font-size: clamp(2.5rem, 10vw, 3.25rem);
+  line-height: 1.2;
+  /* Evita desbordes laterales al permitir cortes de línea */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  .animated-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .animated-title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .animated-title {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .animated-title {
+    font-size: 8rem;
   }
 }
