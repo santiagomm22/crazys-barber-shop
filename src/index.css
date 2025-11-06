@@ -59,12 +59,23 @@
 
 @layer base {
   body {
-    background: radial-gradient(circle at top left, #2a2825 0%, #1a1918 50%, #0d0c0c 100%);
+    /* background: radial-gradient(circle at top left, #2a2825 0%, #1a1918 50%, #0d0c0c 100%); */
     margin: 0;
     padding: 0;
     color: white;
     min-height: 100vh;
+    overflow: hidden;
   }
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .animated-title {
