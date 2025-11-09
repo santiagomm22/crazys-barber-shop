@@ -5,10 +5,11 @@ export default function AnimatedText() {
     <div className="animated-text-wrapper w-full h-screen flex items-start justify-center p-4 md:justify-start md:items-center">
       <div className="w-full h-auto pt-8 md:w-1/2 md:h-full md:flex md:items-center md:justify-center md:scale-95">
         <SplitText
-          text="CRAZY BARBER SHOP"
-          className="font-bold text-white text-center animated-title"
+          text="THE CRAZY'S BARBERSHOP"
+          className="text-white text-center animated-title"
+          style={{ fontFamily: "Aerosoldier, sans-serif" }}
           tag="h1"
-          delay={50}
+          delay={70}
           duration={0.6}
           ease="power3.out"
           splitType="chars"

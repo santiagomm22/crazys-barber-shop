@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Aerosoldier';
+  src: url('/fonts/Aerosoldier_PERSONAL_USE_ONLY.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aerosoldier Drip';
+  src: url('/fonts/AerosoldierDrip_PERSONAL_USE_ONLY.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aerosoldier Spray';
+  src: url('/fonts/AerosoldierSpray_PERSONAL_USE_ONLY.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -59,7 +80,7 @@
 
 @layer base {
   body {
-    /* background: radial-gradient(circle at top left, #2a2825 0%, #1a1918 50%, #0d0c0c 100%); */
+    background: radial-gradient(circle at top left, #2a2825 0%, #1a1918 50%, #0d0c0c 100%);
     margin: 0;
     padding: 0;
     color: white;
@@ -79,8 +100,8 @@
 }
 
 .animated-title {
-  /* Tamaño fluido en pantallas pequeñas para que sea grande pero controlado */
-  font-size: clamp(2.5rem, 10vw, 3.25rem);
+  /* Tamaño más grande en pantallas pequeñas */
+  font-size: clamp(3.5rem, 12vw, 4.5rem);
   line-height: 1.2;
   /* Evita desbordes laterales al permitir cortes de línea */
   word-break: break-word;
@@ -89,7 +110,7 @@
 
 @media (min-width: 640px) {
   .animated-title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 
@@ -109,4 +130,17 @@
   .animated-title {
     font-size: 8rem;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in forwards;
 }
