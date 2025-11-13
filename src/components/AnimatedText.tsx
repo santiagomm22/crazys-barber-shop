@@ -34,7 +34,7 @@ export default function AnimatedText() {
             textAlign="center"
           />
           <SplitText
-            text="CRAZY'S BARBERSHOP"
+            text="CRAZY BARBERSHOP"
             className="block text-white text-center animated-title"
             style={{
               fontFamily: "Aerosoldier, sans-serif",

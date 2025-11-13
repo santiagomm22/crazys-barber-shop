@@ -7,7 +7,7 @@ interface LoadingScreenProps {
 
 export default function LoadingScreen({
   onLoadingComplete,
-  minLoadingTime = 2000
+  minLoadingTime = 2000,
 }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
 
@@ -23,11 +23,11 @@ export default function LoadingScreen({
     // Verificar fuentes
     if (document.fonts.status === "loaded") {
       fontsLoaded = true;
-      setProgress(prev => prev + 30);
+      setProgress((prev) => prev + 30);
     } else {
       document.fonts.ready.then(() => {
         fontsLoaded = true;
-        setProgress(prev => prev + 30);
+        setProgress((prev) => prev + 30);
         checkComplete();
       });
     }
@@ -37,30 +37,38 @@ export default function LoadingScreen({
     if (video) {
       if (video.readyState >= 3) {
         videoLoaded = true;
-        setProgress(prev => prev + 40);
+        setProgress((prev) => prev + 40);
         checkComplete();
       } else {
-        video.addEventListener("canplaythrough", () => {
-          videoLoaded = true;
-          setProgress(prev => prev + 40);
-          checkComplete();
-        }, { once: true });
+        video.addEventListener(
+          "canplaythrough",
+          () => {
+            videoLoaded = true;
+            setProgress((prev) => prev + 40);
+            checkComplete();
+          },
+          { once: true }
+        );
       }
     } else {
       videoLoaded = true;
-      setProgress(prev => prev + 40);
+      setProgress((prev) => prev + 40);
     }
 
     // Tiempo mínimo
     setTimeout(() => {
       minTimeElapsed = true;
-      setProgress(prev => prev + 20);
+      setProgress((prev) => prev + 20);
       checkComplete();
     }, minLoadingTime);
 
     function checkComplete() {
       const elapsed = Date.now() - startTime;
-      if (videoLoaded && fontsLoaded && (elapsed >= minLoadingTime || minTimeElapsed)) {
+      if (
+        videoLoaded &&
+        fontsLoaded &&
+        (elapsed >= minLoadingTime || minTimeElapsed)
+      ) {
         setProgress(100);
         setTimeout(() => {
           onLoadingComplete();
@@ -76,9 +84,9 @@ export default function LoadingScreen({
       <div className="text-center">
         <h1
           className="text-5xl md:text-7xl text-white mb-8"
-          style={{ fontFamily: 'Aerosoldier, sans-serif' }}
+          style={{ fontFamily: "Aerosoldier, sans-serif" }}
         >
-          CRAZY'S
+          CRAZY
         </h1>
 
         {/* Barra de progreso */}
@@ -90,7 +98,7 @@ export default function LoadingScreen({
         </div>
 
         <p className="text-gray-400 mt-4 text-sm">
-          {progress < 100 ? 'Cargando...' : 'Listo'}
+          {progress < 100 ? "Cargando..." : "Listo"}
         </p>
       </div>
     </div>
